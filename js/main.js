@@ -89,9 +89,14 @@ var tikiBars = [
   },
 ];
 
-var map = L.mapbox.map('map', 'brendannee.map-28wp10x1,brendannee.pirate-map', {zoom: 12, center: [37.7755, -122.4186], maxZoom: 14, minZoom: 9});
+var mbTiles = new L.tileLayer('http://tiki.bn.ee/php/mbtiles.php?z={z}&x={x}&y={y}', {
+    tms: true,
+    attribution: 'Tiles Courtesy of <a href="http://tiles.mapbox.com/mapbox/map/geography-class" target="_blank">MapBox</a>',
+});
 
+var mapboxFallback = new L.TileLayer('http://a.tiles.mapbox.com/v3/brendannee.map-28wp10x1/{z}/{x}/{y}.png');
 
+var map = new L.Map('map', {layers: [mapboxFallback, mbTiles], zoom: 12, center: [37.7755, -122.4186], maxZoom: 15, minZoom: 11});
 
 var TikiIcon = L.Icon.extend({
     options: {
