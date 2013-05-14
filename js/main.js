@@ -96,7 +96,7 @@ var mbTiles = new L.tileLayer('http://tiki.bn.ee/php/mbtiles.php?z={z}&x={x}&y={
 
 var mapboxFallback = new L.TileLayer('http://a.tiles.mapbox.com/v3/brendannee.map-28wp10x1/{z}/{x}/{y}.png');
 
-var map = new L.Map('map', {layers: [mapboxFallback, mbTiles], zoom: 12, center: [37.7755, -122.4186], maxZoom: 15, minZoom: 11});
+var map = new L.Map('map', {layers: [mapboxFallback, mbTiles], zoom: 11, center: [37.6755, -122.3186], maxZoom: 15, minZoom: 10});
 
 var TikiIcon = L.Icon.extend({
     options: {
