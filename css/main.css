@@ -307,18 +307,23 @@ html, body, #map {
 }
 
 #title {
+    background: url(../img/logo@2x.png) 0 0 no-repeat;
+    background-size: 500px 226px;
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 450px;
-    height: 70px;
-    padding: 10px 25px;
-    background: #FFF;
+    left: 50%;
+    width: 500px;
+    height: 226px;
+    margin-left: -226px;
 }
 
 #title h1 {
+    display: none;
     margin: 0;
     line-height: 50px;
-    font-family: 'Irish Grover', cursive;
     font-size: 40px;
+}
+
+#title .credits {
+    display: none;
 }
