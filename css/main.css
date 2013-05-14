@@ -327,3 +327,58 @@ html, body, #map {
 #title .credits {
     display: none;
 }
+
+
+/* Leaflet Overrides */
+
+.leaflet-bar {
+    border-color: rgb(54, 42, 33);
+}
+
+.leaflet-bar a {
+    background: #725948 url(../img/bamboo-bg-light.png) 10px 0 repeat;
+    color: #FFF;
+    border-color: rgb(54, 42, 33);
+}
+
+.leaflet-bar a.leaflet-disabled,
+.leaflet-bar a:active {
+    background: #725948 url(../img/bamboo-bg.png) 10px 0 repeat;
+    color: #000;
+}
+
+.leaflet-popup-content-wrapper {
+    background: #725948 url(../img/bamboo-bg.png) 0 0 repeat;
+    border-radius: 20px;
+    border: 2px solid rgb(29, 29, 29);
+}
+
+.leaflet-popup-tip {
+    background: #725948 url(../img/bamboo-bg.png) 0 0 repeat;
+    border-bottom: 2px solid rgb(29, 29, 29);
+    border-right: 2px solid rgb(29, 29, 29);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    color: #FFF;
+    text-shadow: 0px 0px 4px #000;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+    color: #EEE;
+}
+
+.leaflet-popup-content {
+    color:#EEE;
+}
+
+.leaflet-popup-content a {
+    color:#EEE;
+}
+
+.bar-title {
+    font-weight: bold;
+    font-size: 150%;
+    padding-bottom: 10px;
+    font-family: 'Cherry Cream Soda', cursive;
+}

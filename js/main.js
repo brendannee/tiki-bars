@@ -3,6 +3,7 @@ var tikiBars = [
     name: 'Tonga Room',
     address: '950 Mason St, San Francisco, CA',
     description: 'A must see',
+    website: 'http://tongaroom.com',
     lat: 37.79216,
     lng: -122.41005
   },
@@ -10,6 +11,7 @@ var tikiBars = [
     name: 'Smuggler\'s Cove',
     address: '650 Gough St, San Francisco, CA',
     description: 'World\'s smallest three-story bar',
+    website: 'http://http://smugglerscovesf.com/',
     lat: 37.77941, 
     lng: -122.42335
   },
@@ -17,28 +19,93 @@ var tikiBars = [
     name: 'Trad\'r Sam',
     address: '6150 Geary Blvd, San Francisco, CA',
     description: 'Divey, old-time tiki',
+    website: 'http://critiki.com/location/?loc_id=157',
     lat: 37.78018, 
     lng: -122.48565
   },
-
-
+  {
+    name: 'Trader Vic\'s',
+    address: '9 Anchor Dr, Emeryville, CA',
+    description: 'A real tiki bar out on the Emeryville Marina.',
+    website: 'http://tradervicsemeryville.com',
+    lat: 37.8380, 
+    lng: -122.3078
+  },
+  {
+    name: 'Conga Lounge',
+    address: '5422 College Ave, Oakland, CA',
+    description: 'Upstairs Tiki Bar in Rockridge',
+    website: 'http://congalounge.com',
+    lat: 37.84069, 
+    lng: -122.25127
+  },
+  {
+    name: 'Forbidden Island',
+    address: '1304 Lincoln Ave, Alameda, CA',
+    description: 'Island-themed Tiki bar on a real Island.',
+    website: 'http://forbiddenislandalameda.com',
+    lat: 37.84069, 
+    lng: -122.25127
+  },
+  {
+    name: 'Bamboo Hut',
+    address: '479 Broadway, San Francisco, CA',
+    description: '',
+    website: 'http://critiki.com/location/?loc_id=158',
+    lat: 37.797950, 
+    lng: -122.405071
+  },
+  {
+    name: 'Tiki Haven',
+    address: '1334 Noriega St, San Francisco, CA',
+    description: '',
+    website: 'http://critiki.com/location/?loc_id=784',
+    lat: 37.75414, 
+    lng: -122.47821
+  },
+  {
+    name: 'Kona Club',
+    address: '4401 Piedmont Ave, Oakland, CA',
+    description: '',
+    website: 'http://critiki.com/location/?loc_id=543',
+    lat: 37.83040, 
+    lng: -122.24732 
+  },
+  {
+    name: 'Hukilau',
+    address: '230 Jackson Street, San Jose, CA',
+    description: '',
+    website: 'http://www.dahukilau.com/',
+    lat: 37.34895, 
+    lng: -121.8935
+  },
+  {
+    name: 'The Downtown Tiki Lounge',
+    address: '144 South B St., San Mateo, CA',
+    description: '',
+    website: 'http://www.thedowntowntikilounge.com/',
+    lat: 37.56651, 
+    lng: -122.32365
+  },
 ];
 
-var map = L.mapbox.map('map', 'examples.map-4l7djmvo')
-    .setView([37.7755, -122.4186], 9);
+var map = L.mapbox.map('map', 'brendannee.map-28wp10x1,brendannee.pirate-map', {zoom: 12, center: [37.7755, -122.4186], maxZoom: 14, minZoom: 9});
+
+
 
 var TikiIcon = L.Icon.extend({
     options: {
         shadowUrl: 'img/icons/shadow.png',
-        iconSize:     [136, 148],
-        shadowSize:   [238, 52],
-        iconAnchor:   [68, 148],
-        shadowAnchor: [68, 49],
+        iconSize:     [68, 74],
+        shadowSize:   [119, 52],
+        iconAnchor:   [34, 74],
+        shadowAnchor: [34, 43],
         popupAnchor:  [-3, -76]
     }
 });
 
 tikiBars.forEach(function(bar, idx){
-  var details = '<b>' + bar.name + '</b><br>' + bar.address + '<br>' + bar.description;
+  var website = (bar.website) ? '<br><a href="' + bar.website + '" target="_blank">' + bar.website + '</a>' : ''
+    , details = '<div class="bar-title">' + bar.name + '</div>' + bar.address + '<br>' + bar.description + website;
   L.marker([bar.lat, bar.lng], {icon: new TikiIcon({iconUrl: 'img/icons/' + (idx + 1) + '.png'})}).addTo(map).bindPopup(details);
 });
