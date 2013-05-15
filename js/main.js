@@ -96,7 +96,7 @@ var mbTiles = new L.tileLayer('http://tiki.bn.ee/php/mbtiles.php?z={z}&x={x}&y={
 
 var mapboxFallback = new L.TileLayer('http://a.tiles.mapbox.com/v3/brendannee.map-28wp10x1/{z}/{x}/{y}.png');
 
-var map = new L.Map('map', {layers: [mapboxFallback, mbTiles], zoom: 11, center: [37.6755, -122.3186], maxZoom: 15, minZoom: 10});
+var map = new L.Map('map', {layers: [mapboxFallback, mbTiles], zoom: 12, center: [37.7255, -122.3186], maxZoom: 15, minZoom: 10});
 
 var TikiIcon = L.Icon.extend({
     options: {
@@ -114,3 +114,51 @@ tikiBars.forEach(function(bar, idx){
     , details = '<div class="bar-title">' + bar.name + '</div>' + bar.address + '<br>' + bar.description + website;
   L.marker([bar.lat, bar.lng], {icon: new TikiIcon({iconUrl: 'img/icons/' + (idx + 1) + '.png'})}).addTo(map).bindPopup(details);
 });
+
+if (window.HTMLAudioElement) {
+  var snd = new Audio('');
+   
+  if(snd.canPlayType('audio/ogg')) {
+    snd = new Audio('sound/tiki.ogg');
+  }
+  else if(snd.canPlayType('audio/mp3')) {
+    snd = new Audio('sound/tiki.mp3');
+  }
+  snd.loop = true;
+  snd.play();
+}
+
+function flyPlane() {
+  $('#plane').animate(getPosition('destination'), 10000, 'linear', function() {
+    $('#plane').css(getPosition('origin'));
+  });
+}
+
+function getPosition(type) {
+  var imageHeight = 73
+    , imageWidth = 128
+    , side = (type == 'origin') ? ((Math.random() > .5) ? 'bottom' : 'left') : ((Math.random() > .5) ? 'top' : 'right')
+    , offset = Math.floor(Math.random() * (((side == 'left' || side == 'right') ? $(window).height() : $(window).width()) - 200)) + 100
+    , position = {};
+
+    if(side == 'bottom') {
+      position.top = $(window).height() + imageHeight + 'px';
+      position.left = offset + 'px';;
+    } else if(side == 'left') {
+      position.top = offset + 'px';
+      position.left = -imageWidth + 'px';
+    } else if(side == 'top') {
+      position.top = -imageHeight + 'px';
+      position.left = offset + 'px';
+    } else {
+      position.top = offset + 'px'
+      position.left = $(window).width() + imageWidth + 'px';
+    }
+    return position;
+}
+
+window.setTimeout(function(){
+  flyPlane();
+  window.setInterval(flyPlane, 77000);
+}, 28000)
+

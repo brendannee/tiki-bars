@@ -382,3 +382,13 @@ html, body, #map {
     padding-bottom: 10px;
     font-family: 'Cherry Cream Soda', cursive;
 }
+
+#plane {
+    position: absolute;
+    top: 200px;
+    left: -128px;
+    width: 128px;
+    height: 73px;
+    background: url(../img/plane.png) 0 0 no-repeat;
+    background-size: 128px 73px;
+}
