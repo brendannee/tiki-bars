@@ -44,8 +44,8 @@ var tikiBars = [
     address: '1304 Lincoln Ave, Alameda, CA',
     description: 'Island-themed Tiki bar on a real Island.',
     website: 'http://forbiddenislandalameda.com',
-    lat: 37.84069, 
-    lng: -122.25127
+    lat: 37.77460, 
+    lng: -122.26291 
   },
   {
     name: 'Bamboo Hut',
