@@ -1,0 +1,5 @@
+RewriteEngine on
+
+#Force https
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://tiki.bn.ee/$1 [R,L]
